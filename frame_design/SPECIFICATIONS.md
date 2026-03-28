@@ -29,8 +29,8 @@
 
 | Component | Dimensions | Mounting |
 |---|---|---|
-| Avatar GT Camera | 19 x 19 x 22 mm | 19 mm side-mount, M2 bolts |
-| Avatar GT VTX | 28 x 30 mm board | 25.5 x 25.5 mm M2 pattern |
+| Avatar GT Camera | 19 x 19 x 24 mm (9.5 g) | 19 mm side-mount, M2 bolts, M12 lens |
+| Avatar GT VTX | 34 x 34 mm board (41.6 g w/ antennas) | 25.5 x 25.5 mm + 20 x 20 mm M2 patterns |
 | Camera Tilt Range | 15° to 55° | Adjustable via arc slots |
 | Default Tilt | 30° | |
 | Antenna Exit | Rear top plate | 6 mm pass-through hole |
@@ -39,39 +39,51 @@
 
 The frame supports **both** common 3-inch FC form factors simultaneously:
 
-#### 1. SpeedyBee F405 Mini AIO (20x20mm)
+#### 1. HAKRC F7220 40A AIO (20x20mm)
 | Spec | Value |
 |---|---|
 | Mounting Pattern | 20 x 20 mm, M2 |
-| Board Size | ~27 x 27 mm |
+| Board Size | 40 x 30 mm |
+| MCU | STM32F722RET6 |
+| Gyro/IMU | ICM42688-P |
 | Firmware | Betaflight / iNav |
-| Built-in ESC | 4-in-1 35A (BLHeli_S) |
+| Built-in ESC | 4-in-1 40A (BLHeli_32), 50A burst |
+| BEC | 5V/3A + 10V/2.5A |
 | Voltage | 2-6S LiPo |
-| Features | OSD, Blackbox, Barometer |
-| Why chosen | Most popular AIO for lightweight 3" builds, excellent community support |
+| UARTs | 5 |
+| Weight | 10 g |
+| Features | 8-layer PCB, 2oz copper, OSD, Blackbox |
+| Why chosen | Most popular 20x20 AIO, F7 processor with 6S/40A headroom |
 
-#### 2. JHEMCU GHF405AIO (25.5x25.5mm)
+#### 2. GEPRC TAKER G4 35A AIO (25.5x25.5mm)
 | Spec | Value |
 |---|---|
-| Mounting Pattern | 25.5 x 25.5 mm, M2 |
-| Board Size | ~32 x 32 mm |
+| Mounting Pattern | 25.5 x 25.5 mm, phi 3.05 mm holes |
+| Board Size | 33.4 x 34.4 mm |
+| MCU | STM32G473CEU6 |
+| Gyro/IMU | ICM42688-P |
 | Firmware | Betaflight / iNav |
-| Built-in ESC | 4-in-1 40A (BLHeli_32) |
-| Voltage | 3-6S LiPo |
-| Features | OSD, Blackbox, Dual UART, Current sensor |
-| Why chosen | Popular full-size mini AIO, higher current rating for aggressive flying |
+| Built-in ESC | 35A continuous, 45A burst |
+| BEC | 5V/3A |
+| Voltage | 2-4S LiPo |
+| UARTs | 4 (R1/T1, R2/T2, R4/T4, R5/T5) |
+| USB | Type-C |
+| Weight | 7.7 g |
+| Why chosen | Leading 25.5x25.5 AIO, lightweight, popular in sub-250g 3" builds |
 
 ### Motors: iFlight XING 1404
 
 | Spec | Value |
 |---|---|
 | Motor Size | 1404 (14 mm stator diameter, 04 mm stator height) |
-| Motor OD | ~16 mm (bell) |
-| Mounting Pattern | 12 x 12 mm, M2 bolts |
+| Motor OD | 18.3 mm (bell), 19.9 mm (XING2 variant) |
+| Motor Height | 12.5 mm (X1404), 18.4 mm (XING2) |
+| Mounting Pattern | 9 x 9 mm, M2 bolts |
 | Shaft Diameter | 1.5 mm |
-| Prop Mount | T-mount / press-fit |
+| Prop Mount | Press-fit / friction fit (T-mount style) |
+| Configuration | 9N12P |
 | Recommended KV | 3800 KV (4S) / 4600 KV (6S) |
-| Weight | ~7.5 g per motor |
+| Weight | 8.5 g (X1404) / 9.1 g (XING2) per motor |
 | Compatible Props | Gemfan 3016, HQ 3x1.5, Avan Mini 3 |
 
 ---

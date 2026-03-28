@@ -10,7 +10,7 @@
 // --- Camera Specs (Walksnail Avatar GT) ---
 cam_w       = 19;     // mm - camera width
 cam_h       = 19;     // mm - camera height
-cam_d       = 22;     // mm - camera depth (with lens)
+cam_d       = 24;     // mm - camera depth (with lens)
 lens_od     = 14;     // mm - lens outer diameter
 lens_depth  = 12;     // mm - lens protrusion
 

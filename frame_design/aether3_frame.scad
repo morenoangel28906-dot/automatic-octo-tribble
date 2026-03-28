@@ -5,8 +5,8 @@
 // Designer: Claude AI-Assisted Parametric Design
 // Compatibility:
 //   - Camera/VTX: Walksnail Avatar GT
-//   - FC: SpeedyBee F405 Mini 20x20 / JHEMCU GHF405AIO 25.5x25.5
-//   - Motors: iFlight XING 1404 (12x12mm M2)
+//   - FC: HAKRC F7220 40A AIO 20x20 / GEPRC TAKER G4 35A AIO 25.5x25.5
+//   - Motors: iFlight XING 1404 (9x9mm M2)
 //   - Props: 3-inch (76.2mm)
 // ============================================================
 
@@ -30,7 +30,7 @@ arm_root_width      = 14;   // mm - arm width at body junction
 
 // --- Body Dimensions ---
 body_length         = 52;   // mm - center body length
-body_width          = 30;   // mm - center body width
+body_width          = 36;   // mm - center body width (fits 34mm VTX board)
 body_fillet         = 5;    // mm - corner radius
 
 // --- Prop Clearance ---
@@ -38,22 +38,22 @@ prop_diameter       = 76.2; // mm - 3 inch
 prop_clearance      = 4;    // mm - minimum between prop tips
 
 // --- Motor Mount (iFlight XING 1404) ---
-motor_mount_pattern = 12;   // mm - bolt pattern (12x12)
+motor_mount_pattern = 9;    // mm - bolt pattern (9x9 M2)
 motor_mount_bolt    = 2;    // mm - M2 bolts
-motor_diameter      = 16;   // mm - motor can OD
+motor_diameter      = 18.3; // mm - motor can OD (XING X1404)
 motor_shaft         = 1.5;  // mm - shaft diameter
 motor_mount_holes   = 4;    // number of mounting holes
 
 // --- FC Mount (Dual Pattern Support) ---
 fc_20x20_pattern    = 20;   // mm - M2 holes
 fc_20x20_bolt       = 2;    // mm
-fc_25x25_pattern    = 25.5; // mm - M3 holes (actually M2 on most)
+fc_25x25_pattern    = 25.5; // mm - M2 holes (phi 3.05mm on GEPRC G4)
 fc_25x25_bolt       = 2;    // mm
 
 // --- Walksnail Avatar GT Camera ---
 cam_width           = 19;   // mm - camera module width
 cam_height          = 19;   // mm - camera module height
-cam_depth           = 22;   // mm - camera module depth (with lens)
+cam_depth           = 24;   // mm - camera module depth (with lens)
 cam_mount_width     = 19;   // mm - side hole spacing
 cam_mount_bolt      = 2;    // mm - M2 mounting bolts
 cam_tilt_min        = 15;   // degrees - minimum camera tilt
@@ -61,9 +61,9 @@ cam_tilt_max        = 55;   // degrees - maximum camera tilt
 cam_tilt_default    = 30;   // degrees - default tilt angle
 
 // --- Walksnail Avatar GT VTX ---
-vtx_width           = 28;   // mm - board width
-vtx_height          = 30;   // mm - board height
-vtx_mount_pattern   = 25.5; // mm - mounting hole pattern
+vtx_width           = 34;   // mm - board width (actual PCB)
+vtx_height          = 34;   // mm - board height (actual PCB)
+vtx_mount_pattern   = 25.5; // mm - mounting hole pattern (also supports 20x20)
 vtx_mount_bolt      = 2;    // mm - M2 bolts
 
 // --- Standoffs ---
@@ -137,7 +137,7 @@ module motor_mount_pad(thickness) {
         translate([0, 0, -0.5])
             cylinder(d = motor_shaft + 6, h = thickness + 1);
 
-        // M2 mounting holes (12x12 pattern)
+        // M2 mounting holes (9x9 pattern)
         for (dx = [-1, 1], dy = [-1, 1]) {
             translate([dx * motor_mount_pattern/2,
                       dy * motor_mount_pattern/2, -0.5])
@@ -354,13 +354,13 @@ module standoffs() {
 module motor_viz() {
     color(color_motor) {
         // Motor base/stator
-        cylinder(d = 14, h = 4);
+        cylinder(d = 14, h = 4.5);
         // Motor bell
-        translate([0, 0, 4])
-            cylinder(d = 16, h = 6);
+        translate([0, 0, 4.5])
+            cylinder(d = motor_diameter, h = 8);
         // Shaft
-        translate([0, 0, 10])
-            cylinder(d = motor_shaft, h = 4);
+        translate([0, 0, 12.5])
+            cylinder(d = motor_shaft, h = 2);
     }
 }
 
